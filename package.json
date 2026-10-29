@@ -1,0 +1,21 @@
+{
+  "name": "campus-site-template",
+  "version": "1.0.0",
+  "private": false,
+  "description": "A configurable Chinese school website template: 11 static pages, JSON content, local FAQ, and an optional commercially licensed Pro backend.",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "check": "node tools/check.mjs",
+    "assets": "node tools/generate-placeholders.mjs"
+  },
+  "keywords": [
+    "school-website",
+    "education",
+    "static-site",
+    "template",
+    "flask",
+    "rag"
+  ],
+  "license": "MIT"
+}

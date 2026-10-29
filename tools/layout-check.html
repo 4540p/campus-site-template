@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout check</title>
+</head>
+<body>
+  <pre id="out">running…</pre>
+  <script>
+    const pages = ['index.html', 'about.html', 'story.html', 'announcements.html', 'news.html', 'teachers.html', 'gallery.html', 'students.html', 'admission.html', 'mailbox.html', 'changelog.html'];
+    const widths = [390, 768, 1440];
+    async function check(width, page) {
+      return new Promise((resolve) => {
+        const frame = document.createElement('iframe');
+        frame.style.cssText = 'position:fixed;left:-9999px;top:0;border:0;width:' + width + 'px;height:900px;';
+        frame.src = '../' + page;
+        frame.onload = () => setTimeout(() => {
+          const doc = frame.contentDocument;
+          const win = frame.contentWindow;
+          const vw = win.innerWidth;
+          const scrollWidth = doc.documentElement.scrollWidth;
+          const overflow = Array.from(doc.querySelectorAll('body *')).filter((el) => {
+            const rect = el.getBoundingClientRect();
+            const style = win.getComputedStyle(el);
+            return rect.width > 0 && rect.right > vw + 2 && style.position !== 'fixed' && style.position !== 'absolute';
+          }).slice(0, 6).map((el) => {
+            const cls = typeof el.className === 'string' ? el.className.trim().split(/\s+/)[0] : '';
+            return el.tagName.toLowerCase() + (cls ? '.' + cls : '');
+          });
+          resolve({ page, width, scrollWidth, vw, overflow });
+          frame.remove();
+        }, 1400);
+        document.body.appendChild(frame);
+      });
+    }
+    (async () => {
+      const results = [];
+      for (const width of widths) {
+        for (const page of pages) results.push(await check(width, page));
+      }
+      document.getElementById('out').textContent = JSON.stringify(results, null, 2);
+      // eslint-disable-next-line no-self-assign
+      document.title = 'DONE';
+    })();
+  </script>
+</body>
+</html>

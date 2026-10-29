@@ -1,0 +1,340 @@
+/* ============================================================
+   模板补充样式
+   这里只放通用组件，不覆盖原有页面设计。
+   ============================================================ */
+
+/* 导航主题色跟随 config.js */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-500) 55%, var(--accent) 100%);
+}
+
+/* 图片加载时的底色，避免 SVG/图片切换时闪白 */
+.about-image,
+.gallery-item,
+.news-image,
+.teacher-image,
+.student-image,
+.portrait-image,
+.news-detail-image {
+  background: var(--primary-50);
+}
+
+/* ===== 学校简介 ===== */
+.about-values {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.about-side-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--primary-50);
+}
+
+.about-side-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== 学校故事 ===== */
+.story-cta .cta-content h2 {
+  margin-bottom: 12px;
+}
+
+.story-cta .cta-content p {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== 招生简章 ===== */
+.recruitment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.recruitment-tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--primary-50);
+  color: var(--primary-700);
+  font-size: 12px;
+}
+
+.recruitment-arrow {
+  flex-shrink: 0;
+  color: var(--primary-600);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===== 校长信箱 ===== */
+.mailbox-mode-note {
+  margin: 18px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--gray-50);
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.mailbox-form-message {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  min-height: 22px;
+}
+
+.mailbox-form-message.success {
+  color: #059669;
+}
+
+.mailbox-form-message.error {
+  color: var(--danger);
+}
+
+.mailbox-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mailbox-status.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.mailbox-status.replied {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.mailbox-result {
+  margin: 18px 0;
+  padding: 18px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.mailbox-result.is-error {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.mailbox-result-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.mailbox-result-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+.mailbox-result-block + .mailbox-result-block {
+  margin-top: 12px;
+}
+
+.mailbox-result-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.mailbox-result-block p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.mailbox-result-reply {
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--primary-50);
+}
+
+.mailbox-result-reply .mailbox-result-label {
+  color: var(--primary-700);
+}
+
+.mailbox-result-reply time {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.mailbox-result-tip {
+  margin-top: 12px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.mailbox-history {
+  margin-top: 64px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.mailbox-history-empty {
+  text-align: center;
+  color: var(--text-tertiary);
+  padding: 48px 16px;
+  background: #fff;
+  border: 1px dashed var(--gray-200);
+  border-radius: var(--radius-xl);
+}
+
+.mailbox-history-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.mailbox-history-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.mailbox-history-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.mailbox-history-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-700);
+  letter-spacing: 1px;
+}
+
+.mailbox-history-type {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.mailbox-history-main p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mailbox-history-main time {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.mailbox-history-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.mailbox-history-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  background: #fff;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mailbox-history-btn:hover {
+  border-color: var(--primary-400);
+  color: var(--primary-700);
+  background: var(--primary-50);
+}
+
+.mailbox-history-btn.danger:hover {
+  border-color: #fca5a5;
+  color: #b91c1c;
+  background: #fef2f2;
+}
+
+/* 首页查询结果 */
+#check-result .mailbox-result {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== 页脚 ===== */
+.footer-icp {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.footer-icp a {
+  color: var(--gray-500);
+}
+
+.footer-icp a:hover {
+  color: var(--gray-300);
+}
+
+/* ===== 小屏适配 ===== */
+@media (max-width: 480px) {
+  .logo-text {
+    max-width: 132px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mailbox-history-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .mailbox-history-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

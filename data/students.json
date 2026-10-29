@@ -1,0 +1,56 @@
+[
+  {
+    "name": "许诺",
+    "category": "competition",
+    "project": "市级青少年科技创新大赛",
+    "medal": "市级一等奖",
+    "description": "和同伴一起完成了校园雨水收集项目，从测量、设计到搭建用了三个月。",
+    "tags": ["#科技创新", "#团队协作"],
+    "image": "assets/img/student-1.svg"
+  },
+  {
+    "name": "江屿",
+    "category": "club",
+    "project": "青禾话剧社",
+    "medal": "年度最佳演员",
+    "description": "在校园戏剧节中饰演主角，也负责剧本改编和排练统筹。",
+    "tags": ["#戏剧", "#表达"],
+    "image": "assets/img/student-2.svg"
+  },
+  {
+    "name": "温言",
+    "category": "volunteer",
+    "project": "社区阅读陪伴计划",
+    "medal": "志愿服务之星",
+    "description": "每周六上午到社区图书馆陪伴小朋友阅读，坚持了一个学年。",
+    "tags": ["#志愿服务", "#阅读"],
+    "image": "assets/img/student-3.svg"
+  },
+  {
+    "name": "林一",
+    "category": "competition",
+    "project": "市级中学生辩论赛",
+    "medal": "最佳辩手",
+    "description": "喜欢在准备辩题时查资料、找证据，也学会了认真听对方把话说完。",
+    "tags": ["#辩论", "#思辨"],
+    "image": "assets/img/student-4.svg"
+  },
+  {
+    "name": "苏禾",
+    "category": "club",
+    "project": "校园广播站",
+    "medal": "优秀主播",
+    "description": "负责午间新闻和校园访谈栏目，用声音记录校园里的小事。",
+    "tags": ["#播音", "#校园媒体"],
+    "image": "assets/img/student-5.svg"
+  },
+  {
+    "name": "程澈",
+    "category": "volunteer",
+    "project": "校园环保行动",
+    "medal": "环保行动者",
+    "description": "发起教室垃圾分类打卡活动，并推动在每层楼设置回收点。",
+    "tags": ["#环保", "#行动力"],
+    "image": "assets/img/student-6.svg"
+  }
+]

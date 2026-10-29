@@ -1,0 +1,68 @@
+[
+  {
+    "title": "校园大门",
+    "category": "building",
+    "tag": "标志性建筑",
+    "desc": "每天在这里相遇，也在这里出发",
+    "image": "assets/img/campus-1.svg",
+    "tall": true
+  },
+  {
+    "title": "教学楼",
+    "category": "building",
+    "tag": "学习空间",
+    "desc": "明亮的走廊和可以随时坐下讨论的角落",
+    "image": "assets/img/campus-2.svg"
+  },
+  {
+    "title": "图书馆",
+    "category": "building",
+    "tag": "知识殿堂",
+    "desc": "安静、开放，也允许好奇",
+    "image": "assets/img/campus-3.svg"
+  },
+  {
+    "title": "校园花园",
+    "category": "nature",
+    "tag": "自然一角",
+    "desc": "四季有花，课间有风",
+    "image": "assets/img/campus-4.svg",
+    "tall": true
+  },
+  {
+    "title": "运动场",
+    "category": "sports",
+    "tag": "运动场地",
+    "desc": "奔跑、呐喊和不服输的青春",
+    "image": "assets/img/campus-5.svg"
+  },
+  {
+    "title": "实验室",
+    "category": "building",
+    "tag": "实践探索",
+    "desc": "从一次实验开始理解世界",
+    "image": "assets/img/campus-6.svg"
+  },
+  {
+    "title": "体育馆",
+    "category": "sports",
+    "tag": "体育运动",
+    "desc": "下雨天也能尽情运动",
+    "image": "assets/img/campus-7.svg"
+  },
+  {
+    "title": "学生公寓",
+    "category": "life",
+    "tag": "生活家园",
+    "desc": "独立生活的第一课",
+    "image": "assets/img/campus-8.svg",
+    "tall": true
+  },
+  {
+    "title": "校园全景",
+    "category": "nature",
+    "tag": "全景视角",
+    "desc": "120 余亩校园，处处可以学习",
+    "image": "assets/img/campus-9.svg"
+  }
+]

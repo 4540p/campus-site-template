@@ -1,0 +1,425 @@
+/* ============================================
+   Campus Site Template · 公告通知样式
+   ============================================ */
+
+.announcements-section {
+    padding: 64px 0 96px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    min-height: calc(100vh - 380px);
+}
+
+/* ===== 分类筛选 ===== */
+.announcement-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.announcement-filter {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+}
+
+.announcement-filter:hover {
+    border-color: var(--primary-400);
+    color: var(--primary-600);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.announcement-filter.active {
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-400) 100%);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.announcement-filter-icon {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* ===== 公告列表 ===== */
+.announcement-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.announcement-loading {
+    text-align: center;
+    padding: 60px 24px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* ===== 公告卡片 ===== */
+.announcement-card {
+    display: flex;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.announcement-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12);
+    border-color: #cbd5e1;
+}
+
+.announcement-card.is-urgent {
+    border-color: rgba(239, 68, 68, 0.4);
+    background: linear-gradient(135deg, #fff 0%, #fff5f5 100%);
+}
+
+.announcement-card.is-urgent:hover {
+    border-color: #ef4444;
+    box-shadow: 0 12px 32px rgba(239, 68, 68, 0.15);
+}
+
+.announcement-card.is-pinned {
+    border-left: 4px solid var(--primary-600);
+}
+
+/* 左侧日期块 */
+.announcement-card-left {
+    flex-shrink: 0;
+    width: 96px;
+    background: linear-gradient(180deg, var(--primary-600) 0%, var(--primary-400) 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.announcement-card.is-urgent .announcement-card-left {
+    background: linear-gradient(180deg, #dc2626 0%, #ef4444 100%);
+}
+
+.announcement-card-date {
+    text-align: center;
+}
+
+.announcement-card-day {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.announcement-card-month {
+    display: block;
+    font-size: 13px;
+    margin-top: 4px;
+    opacity: 0.9;
+}
+
+/* 右侧主体 */
+.announcement-card-body {
+    flex: 1;
+    padding: 18px 22px 16px;
+    min-width: 0;
+}
+
+.announcement-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.announcement-card-category {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.announcement-card-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.announcement-card-badge.pinned {
+    background: var(--primary-600)15;
+    color: var(--primary-600);
+}
+.announcement-card-badge.urgent {
+    background: #ef444415;
+    color: #dc2626;
+    animation: urgentPulse 2s ease-in-out infinite;
+}
+
+@keyframes urgentPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.announcement-card-author {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.announcement-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    margin: 0 0 6px;
+}
+
+.announcement-card-summary {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.announcement-card-arrow {
+    font-size: 13px;
+    color: var(--primary-400);
+    font-weight: 500;
+}
+
+/* ===== 空状态 ===== */
+.announcement-empty {
+    text-align: center;
+    padding: 80px 24px;
+    color: #94a3b8;
+    background: #fff;
+    border: 1px dashed #e2e8f0;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.announcement-empty-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.5;
+}
+
+/* ===== 错误状态 ===== */
+.announcement-error {
+    text-align: center;
+    padding: 60px 24px;
+    color: #94a3b8;
+    background: #fff;
+    border: 1px dashed #e2e8f0;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.announcement-error-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.7;
+}
+
+.announcement-error-tip {
+    font-size: 13px;
+    margin-top: 8px;
+    color: #94a3b8;
+}
+
+.announcement-retry-btn {
+    margin-top: 16px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-400) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.announcement-retry-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* ===== 详情弹窗 ===== */
+.announcement-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+.announcement-modal.open {
+    display: flex;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.announcement-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 32px 36px;
+    box-shadow: 0 24px 64px rgba(15, 23, 42, 0.24);
+    animation: modalSlideUp 0.3s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.announcement-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #f1f5f9;
+    color: #475569;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.announcement-modal-close:hover {
+    background: #ef4444;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.announcement-modal-header {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.announcement-modal-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.announcement-modal-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    margin: 0 0 10px;
+}
+
+.announcement-modal-info {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: #64748b;
+    flex-wrap: wrap;
+}
+
+.announcement-modal-text {
+    color: #334155;
+    line-height: 1.8;
+    font-size: 15px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+    .announcement-filters {
+        gap: 6px;
+    }
+
+    .announcement-filter {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .announcement-card {
+        flex-direction: column;
+    }
+
+    .announcement-card-left {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .announcement-card-day {
+        font-size: 22px;
+    }
+
+    .announcement-card-month {
+        display: inline;
+        margin-left: 6px;
+    }
+
+    .announcement-card-body {
+        padding: 16px 18px 14px;
+    }
+
+    .announcement-card-title {
+        font-size: 16px;
+    }
+
+    .announcement-modal-content {
+        padding: 24px 20px;
+    }
+
+    .announcement-modal-header h2 {
+        font-size: 19px;
+    }
+}

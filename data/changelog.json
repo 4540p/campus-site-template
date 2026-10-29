@@ -1,0 +1,49 @@
+{
+  "versions": [
+    {
+      "version": "v1.3.0",
+      "date": "2026-10-29",
+      "title": "开源核心与 Pro 拆分",
+      "summary": "公开仓库保留静态官网；后端、管理后台与 AI 作为 Pro 增强包单独授权。",
+      "changes": [
+        { "type": "feature", "text": "公开仓库新增本地 FAQ 与演示信箱的完整使用路径" },
+        { "type": "improvement", "text": "Pro 增强包独立安装，不随公开仓库发布" },
+        { "type": "security", "text": "公开仓库的 .gitignore 增加 Pro 文件与私有知识库规则" }
+      ]
+    },
+    {
+      "version": "v1.2.0",
+      "date": "2026-10-20",
+      "title": "内容与可访问性优化",
+      "summary": "完善移动端导航、键盘操作和页面元信息。",
+      "changes": [
+        { "type": "improvement", "text": "移动端导航支持下拉菜单和键盘操作" },
+        { "type": "improvement", "text": "补充 Open Graph 与结构化数据" },
+        { "type": "fix", "text": "修复部分页面在窄屏下的横向溢出" }
+      ]
+    },
+    {
+      "version": "v1.1.0",
+      "date": "2026-09-15",
+      "title": "接入 Pro 增强包",
+      "summary": "Pro 包支持内容管理、校长信箱持久化与 AI 问答。",
+      "changes": [
+        { "type": "feature", "text": "新增新闻、公告、招生简章管理接口" },
+        { "type": "feature", "text": "新增校长信箱提交与查询" },
+        { "type": "feature", "text": "新增 FAQ 与 RAG 问答接口" },
+        { "type": "security", "text": "管理接口统一使用密码哈希鉴权" }
+      ]
+    },
+    {
+      "version": "v1.0.0",
+      "date": "2026-08-01",
+      "title": "首个模板版本",
+      "summary": "完成 11 个页面、配置化主题与离线演示数据。",
+      "changes": [
+        { "type": "feature", "text": "首页、学校简介、新闻、公告、师资、风光、学子、招生、信箱等页面" },
+        { "type": "feature", "text": "全站配置集中在 assets/js/config.js" },
+        { "type": "improvement", "text": "默认零依赖，可直接部署到静态托管" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 依赖与虚拟环境
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# 环境变量与密钥
+.env
+server/.env
+*.local
+
+# Pro 增强包（单独授权，不进入公开仓库）
+server/
+admin.html
+admin.js
+assets/css/admin.css
+data/knowledge/
+
+# 运行时数据（保留示例文件，忽略真实留言与备份）
+server/chroma_db/
+server/cache_store.json
+data/messages.json
+data/analytics.json
+data/analytics_today.json
+data/email_config.json
+data/backups/*
+!data/backups/.gitkeep
+files/*
+!files/.gitkeep
+
+# 构建产物
+dist/
+_site/

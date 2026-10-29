@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interaction check</title>
+</head>
+<body>
+  <pre id="out">running…</pre>
+  <script>
+    const results = [];
+    function wait(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); }
+    function load(page) {
+      return new Promise((resolve) => {
+        const frame = document.createElement('iframe');
+        frame.style.cssText = 'position:fixed;left:-9999px;top:0;border:0;width:1280px;height:900px;';
+        frame.src = '../' + page;
+        frame.onload = () => setTimeout(() => resolve(frame), 900);
+        document.body.appendChild(frame);
+      });
+    }
+    function report(name, ok, detail) {
+      results.push({ name, ok, detail: detail || '' });
+    }
+    (async () => {
+      // 首页：导航、主题、问答弹窗
+      const home = await load('index.html');
+      const hw = home.contentWindow;
+      const hd = home.contentDocument;
+      report('首页渲染新闻', hd.querySelectorAll('#home-news-grid .news-item').length === 3, String(hd.querySelectorAll('#home-news-grid .news-item').length));
+      report('导航激活状态', (hd.querySelector('.nav-links a.active') || {}).textContent === '首页', (hd.querySelector('.nav-links a.active') || {}).textContent || '');
+      report('主题色变量', hw.getComputedStyle(hd.documentElement).getPropertyValue('--primary-500').trim().toLowerCase() === '#1e40af', hw.getComputedStyle(hd.documentElement).getPropertyValue('--primary-500').trim());
+      hd.querySelector('#ai-trigger').click();
+      await wait(700);
+      const faqModal = hd.querySelector('#faq-modal');
+      report('打开问答弹窗', faqModal && faqModal.getAttribute('aria-hidden') === 'false', faqModal ? faqModal.getAttribute('aria-hidden') : 'missing');
+      report('问答初始消息', hd.querySelectorAll('#faq-chat-messages .faq-message').length >= 1, String(hd.querySelectorAll('#faq-chat-messages .faq-message').length));
+      hw.askFAQ('学校几点上课');
+      await wait(200);
+      const faqText = hd.querySelector('#faq-chat-messages').textContent;
+      report('问答匹配作息', faqText.includes('8:00'), '');
+      home.remove();
+
+      // 招生搜索
+      const adm = await load('admission.html');
+      const ad = adm.contentDocument;
+      const input = ad.querySelector('#recruitment-search-input');
+      input.value = '2026';
+      input.dispatchEvent(new ad.defaultView.Event('input', { bubbles: true }));
+      await wait(200);
+      report('招生搜索过滤', ad.querySelectorAll('#recruitment-list .recruitment-item').length === 1, String(ad.querySelectorAll('#recruitment-list .recruitment-item').length));
+      adm.remove();
+
+      // 校园风光筛选
+      const gal = await load('gallery.html');
+      const gd = gal.contentDocument;
+      const sports = gd.querySelector('.filter-btn[data-filter="sports"]');
+      sports.click();
+      await wait(100);
+      report('风光分类筛选', gd.querySelectorAll('#gallery-grid .gallery-item').length === 2, String(gd.querySelectorAll('#gallery-grid .gallery-item').length));
+      gal.remove();
+
+      // 学子分类
+      const stu = await load('students.html');
+      const sd = stu.contentDocument;
+      sd.querySelector('.category-tab[data-category="volunteer"]').click();
+      await wait(100);
+      report('学子分类筛选', sd.querySelectorAll('#students-grid .student-card').length === 2, String(sd.querySelectorAll('#students-grid .student-card').length));
+      stu.remove();
+
+      // 校长信箱演示提交
+      const mb = await load('mailbox.html');
+      const md = mb.contentDocument;
+      const mw = mb.contentWindow;
+      const form = md.querySelector('#mailbox-form');
+      md.querySelectorAll('input[name="msg_type"]')[1].checked = true;
+      md.querySelector('#mailbox-content').value = '这是一条用于模板自检的测试留言。';
+      form.dispatchEvent(new mw.Event('submit', { bubbles: true, cancelable: true }));
+      await wait(700);
+      const message = md.querySelector('#result-message').textContent;
+      report('信箱提交生成查询码', message.includes('查询码'), message.slice(0, 60));
+      const saved = JSON.parse(mb.contentWindow.localStorage.getItem('campus_site_mailbox_demo') || '[]');
+      report('信箱本地持久化', saved.length >= 1, String(saved.length));
+      if (saved.length) {
+        await mw.Mailbox.query(saved[0].id, '#history-result');
+        await wait(300);
+        report('信箱查询结果', md.querySelector('#history-result').textContent.includes(saved[0].id), '');
+      }
+      mb.remove();
+
+      document.getElementById('out').textContent = JSON.stringify(results, null, 2);
+      document.title = 'DONE';
+    })();
+  </script>
+</body>
+</html>
