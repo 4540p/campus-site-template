@@ -105,7 +105,7 @@ contact: {
 
 主题色会自动生成深浅色阶，不需要手写一堆 CSS 变量。
 
-## Pro 版（单独授权）
+## Pro 增强包（可选）
 
 公开仓库是纯静态模式：
 
@@ -122,14 +122,14 @@ Pro 增强包不包含在这个公开仓库里，单独交付，包含：
 - FAQ 检索 API
 - 可选的 RAG 校务助手（Ollama / LM Studio / 任意 OpenAI 兼容接口）
 
-前端已经预留了接入点。拿到 Pro 包后，在 <code>assets/js/config.js</code> 中设置：
+前端已经预留了接入点。接入 Pro 或自建后端时，在 <code>assets/js/config.js</code> 中设置：
 
 ~~~js
 api: { base: 'http://127.0.0.1:5000' },
 ai:  { endpoint: '/api/chat' },   // 只用 FAQ 时留空
 ~~~
 
-如果你有自己的后端，也可以按照 <code>docs/pro.md</code> 中的接口契约对接。Pro 的功能、交付方式和许可说明见 <code>docs/pro.md</code>。
+接口契约见 <code>docs/backend-integration.md</code>。Pro 源码不包含在本仓库，获取方式请通过仓库主页的 Issues 或维护者主页联系。
 
 ## 部署
 
@@ -138,29 +138,12 @@ ai:  { endpoint: '/api/chat' },   // 只用 FAQ 时留空
 
 GitHub Pages 只需要把仓库根目录设为发布目录即可。模板没有构建步骤。
 
-## 开源与商业化
-
-这个仓库默认使用 MIT 许可证，适合：
-
-- 学校自己部署和维护
-- 开发者基于它做定制项目
-- 作为教学案例或作品集
-
-这个仓库采用“开源核心 + 私有 Pro”的模式：
-
-- 公开仓库：静态官网、配置、内容、本地 FAQ，MIT
-- Pro 包：后端、管理后台、持久化信箱、统计、备份、AI，商业许可
-- 服务：部署、内容迁移、主题定制、知识库整理、培训、年度维护
-
-具体策略和许可证选择见 <code>docs/monetization.md</code>。注意：MIT 允许他人商用和再分发；如果你希望公开版也限制闭源转售，需要改用 AGPL 或双许可证。
-
 ## 文档
 
-- [第一次发布到 GitHub](GITHUB_GUIDE.md)
 - [定制指南](docs/customization.md)
 - [部署指南](docs/deployment.md)
-- [Pro 版与接口契约](docs/pro.md)
-- [商业化思路](docs/monetization.md)
+- [后端接入](docs/backend-integration.md)
+- [贡献指南](CONTRIBUTING.md)
 - [安全说明](SECURITY.md)
 
 ## 许可
